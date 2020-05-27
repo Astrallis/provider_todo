@@ -5,4 +5,6 @@ class Task {
   String title;
   String description;
   TaskStatus status;
+
+  Task({this.id,this.title,this.description,this.status});
 }

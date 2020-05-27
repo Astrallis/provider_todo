@@ -21,8 +21,11 @@ class _UserInputState extends State<UserInput> {
                 width: 60,
                 decoration: BoxDecoration(
                     gradient: LinearGradient(
-                colors: [Color(0xffA4508B),Color(0xff5F0A87),],
-              ),
+                      colors: [
+                        Color(0xffA4508B),
+                        Color(0xff5F0A87),
+                      ],
+                    ),
                     borderRadius: BorderRadius.circular(90),
                     boxShadow: [
                       BoxShadow(
@@ -134,43 +137,70 @@ class _BottomDetState extends State<BottomDet> {
                 SizedBox(
                   height: 10,
                 ),
-                FlatButton(onPressed: (){print("DATE PICKER KHOLUNGA");}, child: Row(children: [
-                  Icon(Icons.calendar_today,color:Color(0xffdddddd),size: 18,),
-                  SizedBox(width: 10,),
-                  Text("Schedule Task", style: TextStyle(color: Color(0xffdddddd),fontWeight: FontWeight.w300,fontSize:18))
-                ],),color: Color(0x0c0c0c),),
+                FlatButton(
+                  onPressed: () {
+                    print("DATE PICKER KHOLUNGA");
+                  },
+                  child: Row(
+                    children: [
+                      Icon(
+                        Icons.calendar_today,
+                        color: Color(0xffdddddd),
+                        size: 18,
+                      ),
+                      SizedBox(
+                        width: 10,
+                      ),
+                      Text("Schedule Task",
+                          style: TextStyle(
+                              color: Color(0xffdddddd),
+                              fontWeight: FontWeight.w300,
+                              fontSize: 18))
+                    ],
+                  ),
+                  color: Color(0x0c0c0c),
+                ),
                 SizedBox(
                   height: 20,
                 ),
                 Container(
-                height: 50,
-                width: double.maxFinite,
-                decoration: BoxDecoration(
-                    gradient: LinearGradient(
-                colors: [Color(0xffA4508B),Color(0xff5F0A87),],
-              ),
-                    borderRadius: BorderRadius.circular(90),
-                    boxShadow: [
-                      BoxShadow(
-                          color: Colors.white12,
-                          offset: Offset(-4, -4),
-                          blurRadius: 10),
-                      BoxShadow(
-                          color: Colors.black,
-                          offset: Offset(4, 4),
-                          blurRadius: 10)
-                    ]),
-                child: Row(mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Icon(
-                      Icons.add,
-                      color: Colors.white,
-                    ),
-                    SizedBox(width: 5,),
-                    Text("ADD TASK",style: TextStyle(color: Colors.white,fontSize: 17),),
-                    SizedBox(width: 10)
-                  ],
-                )),
+                    height: 50,
+                    width: double.maxFinite,
+                    decoration: BoxDecoration(
+                        gradient: LinearGradient(
+                          colors: [
+                            Color(0xffA4508B),
+                            Color(0xff5F0A87),
+                          ],
+                        ),
+                        borderRadius: BorderRadius.circular(90),
+                        boxShadow: [
+                          BoxShadow(
+                              color: Colors.white12,
+                              offset: Offset(-4, -4),
+                              blurRadius: 10),
+                          BoxShadow(
+                              color: Colors.black,
+                              offset: Offset(4, 4),
+                              blurRadius: 10)
+                        ]),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Icon(
+                          Icons.add,
+                          color: Colors.white,
+                        ),
+                        SizedBox(
+                          width: 5,
+                        ),
+                        Text(
+                          "ADD TASK",
+                          style: TextStyle(color: Colors.white, fontSize: 17),
+                        ),
+                        SizedBox(width: 10)
+                      ],
+                    )),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
