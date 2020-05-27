@@ -6,13 +6,13 @@ import '../locator.dart';
 
 class TaskService{
   TaskProvider _taskProvider = locator<TaskProvider>();
-  var uid=new Uuid();
+  
   addTask(Map<String , dynamic> task){
-    task.addAll({
-      'id': uid.v1(),
-      'status': TaskStatus.OPEN
-    });
     Task.fromMap(task);
     _taskProvider.addTask(Task.fromMap(task));
+  }
+  
+  deleteTask(String id){
+    _taskProvider.deleteTask(id);
   }
 }

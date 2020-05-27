@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:provider_todo/locator.dart';
 import 'package:provider_todo/model/task_model.dart';
+import 'package:provider_todo/services/task_service.dart';
 
 class TaskDialog extends StatelessWidget {
-  Task task;
+  final Task task;
+  TaskService _taskService = locator<TaskService>();
 
   TaskDialog({this.task}) ;
   @override
@@ -49,14 +52,25 @@ class TaskDialog extends StatelessWidget {
                 ],
               ),
               SizedBox(height: 33),
-              Text(
-                task.description,
-                style: TextStyle(color: Color(0x88ffffff), fontSize: 15),
+              Row(
+                children: [
+                  Container(
+                    child: Text(
+                      task.description,
+                      style: TextStyle(color: Color(0x88ffffff), fontSize: 15),
+                    ),
+                  ),
+                  Expanded(child: Container(),),
+                  GestureDetector(onTap: _deleteTask(),child: Icon(Icons.delete,color: Color(0xddffffff),))
+                ],
               )
             ],
           ),
         ),
       ),
     );
+  }
+  _deleteTask(){
+    _taskService.deleteTask(this.task.id);
   }
 }

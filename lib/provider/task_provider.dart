@@ -14,4 +14,9 @@ class TaskProvider with ChangeNotifier{
       _tasks.add(task);
       notifyListeners();
     }
+
+    deleteTask(String id){
+      _tasks.removeWhere((t)=> t.id==id);
+      notifyListeners();
+    }
 }

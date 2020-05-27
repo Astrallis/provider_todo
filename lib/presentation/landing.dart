@@ -14,7 +14,7 @@ class Landing extends StatefulWidget {
 }
 
 class _LandingState extends State<Landing> {
-
+  
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -29,11 +29,14 @@ class _LandingState extends State<Landing> {
                       padding: const EdgeInsets.only(top: 100.0),
                       child: Consumer<TaskProvider>(
                           builder: (ctx, provider, child) {
+                        
                         return ListView.builder(
                             itemCount: provider.tasks.length,
-                            itemBuilder: (ctx, index) => TaskDialog(
+                            itemBuilder: (ctx, index){
+                              print(provider.tasks[index].title);
+                              return TaskDialog(
                                   task: provider.tasks[index],
-                                ));
+                            );});
                       }))),
               UserInput(),
               MyAppBar()

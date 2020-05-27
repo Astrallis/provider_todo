@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider_todo/enums/task_status.dart';
 import 'package:provider_todo/services/task_service.dart';
+import 'package:uuid/uuid.dart';
 
 import '../../locator.dart';
 
@@ -79,6 +81,7 @@ class _BottomDetState extends State<BottomDet> {
     // TODO: implement initState
     super.initState();
   }
+    var uid=new Uuid();
 
   @override
   Widget build(BuildContext context) {
@@ -245,6 +248,8 @@ class _BottomDetState extends State<BottomDet> {
     Map<String, dynamic> map={
       'title': titleController.text,
       'description': descController.text,
+      'id': uid.v1(),
+      'status': TaskStatus.OPEN
     };
     _taskService.addTask(map);
   }
