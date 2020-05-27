@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider_todo/services/task_service.dart';
+
+import '../../locator.dart';
 
 class UserInput extends StatefulWidget {
   @override
@@ -64,6 +67,9 @@ class BottomDet extends StatefulWidget {
 class _BottomDetState extends State<BottomDet> {
   final FocusNode titleFocusNode = new FocusNode();
   bool prioritize;
+
+  TaskService _taskService=locator<TaskService>();
+
   final TextEditingController titleController = new TextEditingController();
   final TextEditingController descController = new TextEditingController();
 
@@ -163,44 +169,47 @@ class _BottomDetState extends State<BottomDet> {
                 SizedBox(
                   height: 20,
                 ),
-                Container(
-                    height: 50,
-                    width: double.maxFinite,
-                    decoration: BoxDecoration(
-                        gradient: LinearGradient(
-                          colors: [
-                            Color(0xffA4508B),
-                            Color(0xff5F0A87),
-                          ],
-                        ),
-                        borderRadius: BorderRadius.circular(90),
-                        boxShadow: [
-                          BoxShadow(
-                              color: Colors.white12,
-                              offset: Offset(-4, -4),
-                              blurRadius: 10),
-                          BoxShadow(
-                              color: Colors.black,
-                              offset: Offset(4, 4),
-                              blurRadius: 10)
-                        ]),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Icon(
-                          Icons.add,
-                          color: Colors.white,
-                        ),
-                        SizedBox(
-                          width: 5,
-                        ),
-                        Text(
-                          "ADD TASK",
-                          style: TextStyle(color: Colors.white, fontSize: 17),
-                        ),
-                        SizedBox(width: 10)
-                      ],
-                    )),
+                GestureDetector(
+                  onTap: (){_addTask();},
+                                  child: Container(
+                      height: 50,
+                      width: double.maxFinite,
+                      decoration: BoxDecoration(
+                          gradient: LinearGradient(
+                            colors: [
+                              Color(0xffA4508B),
+                              Color(0xff5F0A87),
+                            ],
+                          ),
+                          borderRadius: BorderRadius.circular(90),
+                          boxShadow: [
+                            BoxShadow(
+                                color: Colors.white12,
+                                offset: Offset(-4, -4),
+                                blurRadius: 10),
+                            BoxShadow(
+                                color: Colors.black,
+                                offset: Offset(4, 4),
+                                blurRadius: 10)
+                          ]),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Icon(
+                            Icons.add,
+                            color: Colors.white,
+                          ),
+                          SizedBox(
+                            width: 5,
+                          ),
+                          Text(
+                            "ADD TASK",
+                            style: TextStyle(color: Colors.white, fontSize: 17),
+                          ),
+                          SizedBox(width: 10)
+                        ],
+                      )),
+                ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -231,5 +240,12 @@ class _BottomDetState extends State<BottomDet> {
             ),
           )),
     ));
+  }
+  _addTask(){
+    Map<String, dynamic> map={
+      'title': titleController.text,
+      'description': descController.text,
+    };
+    _taskService.addTask(map);
   }
 }
