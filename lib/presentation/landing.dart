@@ -14,10 +14,6 @@ class Landing extends StatefulWidget {
 }
 
 class _LandingState extends State<Landing> {
-  Task task = new Task(
-      title: "TITLE OF TASK",
-      description: "HERE IS THE DESCRIPTION OF THE ABOVE TASK",
-      status: TaskStatus.OPEN);
 
   @override
   Widget build(BuildContext context) {
