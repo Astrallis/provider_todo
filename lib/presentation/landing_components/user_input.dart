@@ -170,7 +170,7 @@ class _BottomDetState extends State<BottomDet> {
                   height: 20,
                 ),
                 GestureDetector(
-                  onTap: (){_addTask();},
+                  onTap: (){_addTask();Navigator.pop(context);},
                                   child: Container(
                       height: 50,
                       width: double.maxFinite,

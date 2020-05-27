@@ -14,31 +14,35 @@ class Landing extends StatefulWidget {
 }
 
 class _LandingState extends State<Landing> {
-  Task task = new Task(title: "TITLE OF TASK", description: "HERE IS THE DESCRIPTION OF THE ABOVE TASK",status: TaskStatus.OPEN);
-   
+  Task task = new Task(
+      title: "TITLE OF TASK",
+      description: "HERE IS THE DESCRIPTION OF THE ABOVE TASK",
+      status: TaskStatus.OPEN);
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-          child:Scaffold(
-            resizeToAvoidBottomInset: true,
-            backgroundColor: Color(0xff0c0c0c),
-            body: Stack(
-              children: [
-                Align(alignment: Alignment(0,-1),child: Padding(
-                  padding: const EdgeInsets.only(top:100.0),
-                  child:  Consumer<TaskProvider>(
-            builder: (ctx, provider, child){
-              return ListView.builder(
-                itemCount: provider.tasks.length,
-                itemBuilder: (ctx,index)=> TaskDialog(task: provider.tasks[index],));
-            }
-                      
-                ))),
-                UserInput(),
-                MyAppBar() 
-              ],
-            )),
-          
+      child: Scaffold(
+          resizeToAvoidBottomInset: true,
+          backgroundColor: Color(0xff0c0c0c),
+          body: Stack(
+            children: [
+              Align(
+                  alignment: Alignment(0, -1),
+                  child: Padding(
+                      padding: const EdgeInsets.only(top: 100.0),
+                      child: Consumer<TaskProvider>(
+                          builder: (ctx, provider, child) {
+                        return ListView.builder(
+                            itemCount: provider.tasks.length,
+                            itemBuilder: (ctx, index) => TaskDialog(
+                                  task: provider.tasks[index],
+                                ));
+                      }))),
+              UserInput(),
+              MyAppBar()
+            ],
+          )),
     );
   }
 }
