@@ -19,4 +19,10 @@ class TaskProvider with ChangeNotifier{
       _tasks.removeWhere((t)=> t.id==id);
       notifyListeners();
     }
+
+    updateTask(Task task){
+      int index= _tasks.indexWhere((element) => element.id==task.id);
+      _tasks[index]=task;
+      notifyListeners();
+    }
 }

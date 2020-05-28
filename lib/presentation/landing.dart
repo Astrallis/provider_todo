@@ -29,7 +29,6 @@ class _LandingState extends State<Landing> {
                       padding: const EdgeInsets.only(top: 100.0),
                       child: Consumer<TaskProvider>(
                           builder: (ctx, provider, child) {
-                        
                         return ListView.builder(
                             itemCount: provider.tasks.length,
                             itemBuilder: (ctx, index){

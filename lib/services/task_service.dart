@@ -8,11 +8,14 @@ class TaskService{
   TaskProvider _taskProvider = locator<TaskProvider>();
   
   addTask(Map<String , dynamic> task){
-    Task.fromMap(task);
     _taskProvider.addTask(Task.fromMap(task));
   }
   
   deleteTask(String id){
     _taskProvider.deleteTask(id);
+  }
+
+  updateTask(Map<String, dynamic> task){
+    _taskProvider.updateTask(Task.fromMap(task));
   }
 }
